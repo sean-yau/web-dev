@@ -1,0 +1,49 @@
+@import "~@blueprintjs/core/lib/scss/variables";
+
+body{
+  background-color: $light-gray4;
+}
+
+.mainContent{
+  padding: 30px;
+  font-size: 20px;
+}
+
+.pageContent{
+  margin: 40px 0 10px 0;
+}
+
+.indexButton{
+  font-size: 30px;
+}
+
+.indexButton .bp3-button{
+  margin-bottom: 10px;
+  font-size: 30px;
+}
+
+.liveWrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  align-items: stretch;
+}
+
+.liveEditor{
+  background-color: $dark-gray2;
+  caret-color: white;
+}
+
+.liveEditor, .liveResult{
+  border-radius: 2px;
+  width: 50%;
+}
+
+.liveResult{
+  border: 1px solid $light-gray2;
+  padding: 5px;
+}
+
+.nextButton.bp3-button{
+  float:right
+}
