@@ -13,6 +13,7 @@ class Component extends React.Component {
         let numbers = [2,1,0,5]
         for(let number of numbers){
             if(number){
+                // press F12 to view developer console
                 console.log(number)
             }            
         }
