@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/web-dev/static/css/main.dafae7c5.chunk.css",
+    "main.js": "/web-dev/static/js/main.c87c073b.chunk.js",
+    "main.js.map": "/web-dev/static/js/main.c87c073b.chunk.js.map",
+    "runtime~main.js": "/web-dev/static/js/runtime~main.994735d8.js",
+    "runtime~main.js.map": "/web-dev/static/js/runtime~main.994735d8.js.map",
+    "static/css/2.7c660877.chunk.css": "/web-dev/static/css/2.7c660877.chunk.css",
+    "static/js/2.2b8dc0ba.chunk.js": "/web-dev/static/js/2.2b8dc0ba.chunk.js",
+    "static/js/2.2b8dc0ba.chunk.js.map": "/web-dev/static/js/2.2b8dc0ba.chunk.js.map",
+    "index.html": "/web-dev/index.html",
+    "precache-manifest.9d350ce291fe240ab635a41e32fd628f.js": "/web-dev/precache-manifest.9d350ce291fe240ab635a41e32fd628f.js",
+    "service-worker.js": "/web-dev/service-worker.js",
+    "static/css/2.7c660877.chunk.css.map": "/web-dev/static/css/2.7c660877.chunk.css.map",
+    "static/css/main.dafae7c5.chunk.css.map": "/web-dev/static/css/main.dafae7c5.chunk.css.map",
+    "static/media/blueprint-icons.css": "/web-dev/static/media/icons-20.90247cfd.ttf"
+  }
+}
