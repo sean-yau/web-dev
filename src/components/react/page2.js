@@ -9,20 +9,18 @@ import {
 const code = `
 class MyComponent extends React.Component {
     render() {
+      let aStringVariable = "some text" 
       return (
         <div>
-          <div>Return a div element</div>
-          
-          <span>Return a span element</span>
-          
-          <ol>
-            <li>
-                ordered list
-            </li>
-            <li>
-                list item
-            </li>
-          </ol>
+            <div>
+                One plus one equals {1 + 1}
+            </div>
+            <div>
+                Right now, it is {new Date().toString()}
+            </div>
+            <div>
+                Display {aStringVariable}
+            </div>
         </div>
       )
     }
@@ -30,15 +28,12 @@ class MyComponent extends React.Component {
 `.trim();
 
 export default class page extends Component {
-    state = {
-        showExample: false
-    }
     render() {
         return (
             <>
-                <h1 className="bp3-heading">React Components</h1>
-                <p>User interfaces are built in React by using pieces of code called "components"</p>
-                <p>The most basic type of React component is the "Class" component. This uses a render method to return HTML elements to display.</p>
+                <h1 className="bp3-heading">JSX</h1>
+                <p>Elements that are rendered are neither strings nor actual HTML elements, but "JSX"</p>
+                <p>Curly braces can be inserted into JSX which allows any JavaScript expression to be evaluated</p>
                 <div className="liveWrapper">
                     <LiveProvider code={code}>
                         <LiveEditor className="liveEditor" />
