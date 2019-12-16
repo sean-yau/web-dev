@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { Navbar, Button } from "@blueprintjs/core";
 import Index from './Index'
-import Week1 from './week1'
+import Javascript from './javascript'
+import ReactContent from './react'
 
 export default class Home extends Component {
     state = {
@@ -12,8 +13,10 @@ export default class Home extends Component {
         switch (this.state.page) {
             case "index":
                 return <Index changePage={this.changePage} />
-            case "week1":
-                return <Week1 />
+            case "javascript":
+                return <Javascript />
+            case "react":
+                return <ReactContent />
             default:
                 return <Index />
         }

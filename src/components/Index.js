@@ -8,7 +8,10 @@ export default class Index extends Component {
                 <h1>Index</h1>
                 <ol>
                     <li className="indexButton">
-                        <Button minimal onClick={() => this.props.changePage("week1")}>JavaScript Fundamentals</Button>
+                        <Button minimal onClick={() => this.props.changePage("javascript")}>JavaScript Fundamentals</Button>
+                    </li>
+                    <li className="indexButton">
+                        <Button minimal onClick={() => this.props.changePage("react")}>React Basics</Button>
                     </li>
                 </ol>
             </div>
