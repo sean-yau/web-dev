@@ -7,6 +7,10 @@ import Page4 from './react/page4';
 import Page5 from './react/page5';
 import Page6 from './react/page6';
 import Page7 from './react/page7';
+import Page8 from './react/page8';
+import Page9 from './react/page9';
+import Page10 from './react/page10';
+import Page11 from './react/page11';
 
 export default class ReactContent extends Component {
     state = {
@@ -20,7 +24,11 @@ export default class ReactContent extends Component {
         <Page4 />,
         <Page5 />,
         <Page6 />,
-        <Page7 />
+        <Page7 />,
+        <Page8 />,
+        <Page9 />,
+        <Page10 />,
+        <Page11 />
     ]
 
     render() {

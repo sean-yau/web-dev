@@ -7,22 +7,31 @@ import {
 } from 'react-live'
 
 const code = `
-class MyComponent extends React.Component {
+class Component extends React.Component {
+    constructor() {
+        super()
+        this.state = { 
+            showComponent: false
+        }
+    }
+
+    toggleComponent(){
+        this.setState({
+            showComponent: !this.state.showComponent
+        })
+    }
+
     render() {
       return (
         <div>
-          <div>Return a div element</div>
-          
-          <span>Return a span element</span>
-          
-          <ol>
-            <li>
-                ordered list
-            </li>
-            <li>
-                list item
-            </li>
-          </ol>
+            <div>
+                <button onClick={this.toggleComponent.bind(this)}>Toggle</button>
+            </div>
+            {this.state.showComponent &&
+                <div>
+                    Toggle Me
+                </div>
+            }
         </div>
       )
     }
@@ -30,15 +39,11 @@ class MyComponent extends React.Component {
 `.trim();
 
 export default class page extends Component {
-    state = {
-        showExample: false
-    }
     render() {
         return (
             <>
-                <h1 className="bp3-heading">React Components</h1>
-                <p>User interfaces are built in React by using pieces of code called "components"</p>
-                <p>The most basic type of React component is the <code>Class</code> component. This uses a render method to return HTML elements to display.</p>
+                <h1 className="bp3-heading">Conditional Rendering</h1>
+                <p>JavaScript conditionals can be used conditionally render components</p>
                 <div className="liveWrapper">
                     <LiveProvider code={code}>
                         <LiveEditor className="liveEditor" />

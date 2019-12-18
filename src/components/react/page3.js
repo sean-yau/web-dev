@@ -52,7 +52,7 @@ export default class page extends Component {
             <>
                 <h1 className="bp3-heading">Functions</h1>
                 <p>You can declare your own functions (and variables) in React components too</p>
-                <p>Members declared within a React class are accessed using "this"</p>
+                <p>Members declared within a React class are accessed using <code>this</code></p>
                 <div className="liveWrapper">
                     <LiveProvider code={code} noInline>
                         <LiveEditor className="liveEditor" />

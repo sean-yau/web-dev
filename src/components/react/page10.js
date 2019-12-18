@@ -5,7 +5,6 @@ import {
     LiveError,
     LivePreview
 } from 'react-live'
-import { Button } from "@blueprintjs/core";
 
 const code = `
 class Component extends React.Component {
@@ -23,11 +22,18 @@ class Component extends React.Component {
     }
       
     render() {
+    const url = "https://s3.amazonaws.com/finecooking.s3.tauntonclud.com/app/uploads/2017/04/24170251/ING-apples-main.jpg"
       return (
         <div>
             Count is: {this.state.count}
             <div>
-                <button onClick={this.increaseCount.bind(this)}>Increase</button>
+                {this.state.count < 10 ? 
+                    <button onClick={this.increaseCount.bind(this)}>
+                        Increase
+                    </button>
+                    :
+                    <img height="200" src={url}/>
+                }
             </div>
         </div>
       )
@@ -36,19 +42,11 @@ class Component extends React.Component {
 `.trim();
 
 export default class page extends Component {
-    state = {
-        showExample: false
-    }
-
     render() {
         return (
             <>
-                <h1 className="bp3-heading">React State</h1>
-                <p>All React components have a special property called "state", which belongs to the component</p>
-                <p>State is modified by using <code>this.setState()</code></p>
-                <p>Any time the state object changes the component will re-render (in other words, the render method will be called)</p>
-                <Button text="Show Example" onClick={() => { this.setState({ showExample: !this.state.showExample }) }} />
-                {this.state.showExample &&
+                <h1 className="bp3-heading">Conditional Rendering</h1>
+                <p>With a ternary operator</p>
                     <div className="liveWrapper">
                         <LiveProvider code={code}>
                             <LiveEditor className="liveEditor" />
@@ -57,8 +55,7 @@ export default class page extends Component {
                                 <LivePreview />
                             </div>
                         </LiveProvider>
-                    </div>
-                }
+                    </div>                
             </>
         )
     }

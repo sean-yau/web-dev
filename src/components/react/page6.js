@@ -8,54 +8,56 @@ import {
 import { Button } from "@blueprintjs/core";
 
 const code = `
-class MainComponent extends React.Component {  
+class Component extends React.Component {
     constructor() {
         super()
         this.state = { 
             count: 0
         }
+        // you can also bind functions here
+        // this.increaseCount = this.increaseCount.bind(this)
     }
-    
+
     increaseCount(){
         this.setState({
             count: this.state.count + 1
         })
     }
 
+    /*
+    This syntax can be used when using Create React App 
+    increaseCountArrow = () => {
+        this.setState({
+            count: this.state.count + 1
+        })
+    }
+    */ 
+
     render() {
       return (
         <div>
-            Count is: <NumberComponent count={this.state.count} />
-            <ButtonComponent increaseCount={this.increaseCount.bind(this)} />
+            Count is: {this.state.count}
+            <div>
+                <div>
+                    <button onClick={this.increaseCount.bind(this)}>
+                        Increase
+                    </button>
+                </div>
+                <div>
+                    <button onClick={() => { this.increaseCount() }}>
+                        Also Increase
+                    </button>
+                </div>
+                <div>
+                    <button onClick={this.increaseCountArrow}>
+                        Increase Again
+                    </button>
+                </div>
+            </div>
         </div>
       )
     }
   }
-
-  class ButtonComponent extends React.Component {  
-    render() {
-      return (
-        <div>
-            <button onClick={this.props.increaseCount}>Increase</button>
-        </div>
-      )
-    }
-  }
-
-  class NumberComponent extends React.Component {  
-    render() {
-        return (
-          <span>
-              {this.props.count}
-          </span>
-        )
-      }
-  }
-
-  render (
-      <MainComponent />
-   )
-  
 `.trim();
 
 export default class page extends Component {
@@ -63,16 +65,26 @@ export default class page extends Component {
         showExample: false
     }
 
+    showExample = () => {
+        this.setState({
+            showExample: !this.state.showExample
+        })
+    }
+
     render() {
         return (
             <>
-                <h1 className="bp3-heading">Combining State and Props</h1>
-                <p>Functions can be passed as props by using just the function name. This gives a child component access to a function that exists in the parent component</p>
-                <p>Data can passed from a parent component to a child component via props</p>
-                <Button text="Show Example" onClick={() => { this.setState({ showExample: !this.state.showExample }) }} />
+                <h1 className="bp3-heading">Binding Functions</h1>
+                <p>An Event (such as onClick) can call a function (the Event Handler)</p>
+                <p>This function will not have access to <code>this</code>. There are two ways around this:</p>
+                <ol>
+                    <li>Use <code>bind</code></li>
+                    <li>Use an Arrow Function</li>
+                </ol>
+                <Button text="Show Example" onClick={this.showExample} />
                 {this.state.showExample &&
                     <div className="liveWrapper">
-                        <LiveProvider code={code} noInline>
+                        <LiveProvider code={code}>
                             <LiveEditor className="liveEditor" />
                             <div className="liveResult">
                                 <LiveError />
