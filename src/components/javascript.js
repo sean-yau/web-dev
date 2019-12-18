@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, ProgressBar } from "@blueprintjs/core";
+import { Button, ProgressBar, Popover, Menu, MenuItem, Position } from "@blueprintjs/core";
 import Page1 from './javascript/page1';
 import Page2 from './javascript/page2';
 import Page3 from './javascript/page3';
@@ -49,22 +49,56 @@ export default class Javascript extends Component {
         <Page20 />,
     ]
 
+    pageHeadings = [
+        "Variables",
+        "Difference between var and let",
+        "Operators",
+        "Compound Operators",
+        "Conditionals",
+        "More Conditionals",
+        "Ternary Operator",
+        "Truthy and Falsey",
+        "Functions",
+        "More Complex Example",
+        "Loops",
+        "break and continue",
+        "Arrays",
+        "Looping through Arrays",
+        "Array Methods",
+        "Objects",
+        "JSON",
+        "Big JSON Example",
+        "Working with JSON",
+        "The Spread Operator"
+    ]
+
+    getMenu = () => {
+        return <Menu>
+            {this.pageHeadings.map((heading, index) =>
+                <MenuItem text={heading} onClick={() => { this.setState({ pageIndex: index }) }} disabled={this.state.pageIndex === index} />
+            )}
+        </Menu>
+    }
+
     render() {
         return (
             <>
                 <div>
                     <ProgressBar stripes={false} intent="primary" value={this.state.pageIndex / (this.pages.length - 1)} />
                 </div>
-                <div className="pageContent">
-                    {this.pages[this.state.pageIndex]}
-                </div>
-                <div>
+                <div style={{ marginTop: "10px" }}>
                     {this.state.pageIndex > 0 &&
                         <Button icon="arrow-left" text="Previous" onClick={() => { this.setState({ pageIndex: this.state.pageIndex - 1 }) }} />
                     }
+                    <Popover className="jumpButton" content={this.getMenu()} position={Position.BOTTOM}>
+                        <Button text="Jump to..." />
+                    </Popover>
                     {this.state.pageIndex < this.pages.length - 1 &&
                         <Button className="nextButton" rightIcon="arrow-right" text="Next" onClick={() => { this.setState({ pageIndex: this.state.pageIndex + 1 }) }} />
                     }
+                </div>
+                <div className="pageContent">
+                    {this.pages[this.state.pageIndex]}
                 </div>
             </>
         )
