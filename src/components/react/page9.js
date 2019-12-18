@@ -11,27 +11,36 @@ class Component extends React.Component {
     constructor() {
         super()
         this.state = { 
-            showComponent: false
+            text: "original"
         }
     }
 
-    toggleComponent(){
+    popupText(){
+        alert(this.state.text)
+    }
+
+    noCallBack(){
         this.setState({
-            showComponent: !this.state.showComponent
+            text: "modified"
         })
+        this.popupText()
+    }
+
+    withCallBack(){
+        this.setState({
+            text: "modified"
+        }, this.popupText())
     }
 
     render() {
       return (
         <div>
             <div>
-                <button onClick={this.toggleComponent.bind(this)}>Toggle</button>
+                <button onClick={this.noCallBack.bind(this)}>No Callback</button>
             </div>
-            {this.state.showComponent &&
-                <div>
-                    Toggle Me
-                </div>
-            }
+            <div>
+                <button onClick={this.withCallBack.bind(this)}>With Callback</button>
+            </div>
         </div>
       )
     }
@@ -42,8 +51,9 @@ export default class page extends Component {
     render() {
         return (
             <>
-                <h1 className="bp3-heading">Conditional Rendering</h1>
-                <p>JavaScript conditionals can be used conditionally render components</p>
+                <h1 className="bp3-heading">Set State</h1>
+                <p><code>setState()</code> is <b>asynchronous</b>, in other words, it does not happen immediately</p>
+                <p><code>setState()</code> has a callback function which allows you to execute a function after <code>setState()</code> is complete</p>
                 <div className="liveWrapper">
                     <LiveProvider code={code}>
                         <LiveEditor className="liveEditor" />

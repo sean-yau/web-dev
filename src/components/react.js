@@ -11,6 +11,12 @@ import Page8 from './react/page8';
 import Page9 from './react/page9';
 import Page10 from './react/page10';
 import Page11 from './react/page11';
+import Page12 from './react/page12';
+import Page13 from './react/page13';
+import Page14 from './react/page14';
+import Page15 from './react/page15';
+import Page16 from './react/page16';
+import Page17 from './react/page17';
 
 export default class ReactContent extends Component {
     state = {
@@ -28,7 +34,13 @@ export default class ReactContent extends Component {
         <Page8 />,
         <Page9 />,
         <Page10 />,
-        <Page11 />
+        <Page11 />,
+        <Page12 />,
+        <Page13 />,
+        <Page14 />,
+        <Page15 />,
+        <Page16 />,
+        <Page17 />
     ]
 
     render() {

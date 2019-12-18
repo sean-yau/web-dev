@@ -11,30 +11,27 @@ class Component extends React.Component {
     constructor() {
         super()
         this.state = { 
-            count: 0
+            showComponent: false
         }
     }
 
-    increaseCount(){
+    toggleComponent(){
         this.setState({
-            count: this.state.count + 1
+            showComponent: !this.state.showComponent
         })
     }
-      
+
     render() {
-    const url = "https://s3.amazonaws.com/finecooking.s3.tauntonclud.com/app/uploads/2017/04/24170251/ING-apples-main.jpg"
       return (
         <div>
-            Count is: {this.state.count}
             <div>
-                {this.state.count < 10 ? 
-                    <button onClick={this.increaseCount.bind(this)}>
-                        Increase
-                    </button>
-                    :
-                    <img height="200" src={url}/>
-                }
+                <button onClick={this.toggleComponent.bind(this)}>Toggle</button>
             </div>
+            {this.state.showComponent &&
+                <div>
+                    Toggle Me
+                </div>
+            }
         </div>
       )
     }
@@ -46,16 +43,16 @@ export default class page extends Component {
         return (
             <>
                 <h1 className="bp3-heading">Conditional Rendering</h1>
-                <p>With a ternary operator</p>
-                    <div className="liveWrapper">
-                        <LiveProvider code={code}>
-                            <LiveEditor className="liveEditor" />
-                            <div className="liveResult">
-                                <LiveError />
-                                <LivePreview />
-                            </div>
-                        </LiveProvider>
-                    </div>                
+                <p>JavaScript conditionals can be used conditionally render components</p>
+                <div className="liveWrapper">
+                    <LiveProvider code={code}>
+                        <LiveEditor className="liveEditor" />
+                        <div className="liveResult">
+                            <LiveError />
+                            <LivePreview />
+                        </div>
+                    </LiveProvider>
+                </div>
             </>
         )
     }

@@ -49,7 +49,7 @@ class CounterComponent extends React.Component {
       return (
         <div>            
             <div>
-                {this.state.count}
+                I can give {this.state.count} apples
             </div>
             <div>
                 <button onClick={this.increaseCount.bind(this)}>Increase</button>
@@ -70,8 +70,7 @@ class BoxComponent extends React.Component {
   }
   render (
       <MainComponent />
-   )
-  
+   )  
 `.trim();
 
 export default class page extends Component {
