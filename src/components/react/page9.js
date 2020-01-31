@@ -29,7 +29,7 @@ class Component extends React.Component {
     withCallBack(){
         this.setState({
             text: "modified"
-        }, this.popupText())
+        }, this.popupText)
     }
 
     render() {
