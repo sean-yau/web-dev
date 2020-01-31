@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Navbar, Button } from "@blueprintjs/core";
 import Index from './Index'
 import Javascript from './javascript'
+import MoreJavascript from './moreJavascript'
 import ReactContent from './react'
 
 export default class Home extends Component {
@@ -17,6 +18,8 @@ export default class Home extends Component {
                 return <Javascript />
             case "react":
                 return <ReactContent />
+            case "moreJavascript":
+                return <MoreJavascript />
             default:
                 return <Index />
         }

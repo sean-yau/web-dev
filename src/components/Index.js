@@ -13,6 +13,9 @@ export default class Index extends Component {
                     <li className="indexButton">
                         <Button minimal onClick={() => this.props.changePage("react")}>React Basics</Button>
                     </li>
+                    <li className="indexButton">
+                        <Button minimal onClick={() => this.props.changePage("moreJavascript")}>More JavaScript</Button>
+                    </li>
                 </ol>
             </div>
         )
